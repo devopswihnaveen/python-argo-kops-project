@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/python-argo"
+        DOCKER_IMAGE = "naveenkumarvelanati/python-argo"
         DOCKER_TAG   = "latest"
         SONAR_SCANNER_HOME = tool 'SonarQubeScanner'
     }
@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/<your-username>/python-argo-kops-project.git'
+                    url: 'https://github.com/devopswihnaveen/python-argo-kops-project.git'
             }
         }
 
