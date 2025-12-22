@@ -30,9 +30,16 @@ jobs:
     # 3️⃣ SonarQube Scan
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v2
+      with:
+        args: >
+          -Dsonar.projectKey=python-argo-kops
+          -Dsonar.projectName=python-argo-kops-project
+          -Dsonar.projectBaseDir=${{ github.workspace }}
+          -Dsonar.sources=.
       env:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 
     # 4️⃣ SonarQube Quality Gate
     - name: SonarQube Quality Gate
